@@ -9,5 +9,6 @@ public class TickerProfile : Profile
     public TickerProfile()
     {
         CreateMap<CreateTickerDto, TickerModel>();
+        CreateMap<TickerModel, ReadTickerDto>();
     }
 }

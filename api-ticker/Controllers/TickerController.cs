@@ -29,5 +29,15 @@ namespace ticker_api.Controllers
 
             return Ok(ticker);
         }
+
+        [HttpGet("{id}")]
+        public IActionResult PegaTickerPorId(int id) 
+        {
+        var ticker = _context.Ticker.FirstOrDefault(ticker => ticker.Id == id);
+            if (ticker == null) { return NotFound(); }
+            var tickerDto = _mapper.Map<ReadTickerDto>(ticker);
+            return Ok(tickerDto);
+
+        }
     }
 }
